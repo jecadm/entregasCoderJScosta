@@ -23,7 +23,7 @@ let totalC = [];
 monto = parseInt(
   prompt("Ingrese el monto del préstamos a solicitar: ".toLocaleUpperCase())
 );
-
+// PROXIMA ENTREGA SE CAMBIARÁ EL TRUE DEL WHILE POR UNA CONDICION, NO ES BUENA PRACTICA USAR BOLEANO AHI
 while (true) {
   let num = monto;
   /*
@@ -89,13 +89,12 @@ console.log(cuotasFinal);
 cuotasSelec = Number(
   prompt(`Selecciones cantidad de cuotas ${cuotasa}: `.toLocaleUpperCase())
 );
-
+// PROXIMA ENTREGA SE CAMBIARA EL TRUE DEL WHILE POR UNA CONDICION, NO ES BUENA PRACTICA USAR BOLEANO AHI
 while (true) {
   let num = cuotasSelec;
   /*
 isNaN(num) =  es igual a
-hasta que sea insertado un número terminará el ciclo o hasta que se escriba fin
-*/
+hasta que sea insertado un número terminará el ciclo */
   if (
     isNaN(num) ||
     num === 1 ||
@@ -187,7 +186,7 @@ nomUser = prompt("Ingrese su nombre: ");
 //OBJETO PARA ARMAR EL PAQUETE ACEPTADO
 function Prestamo() {
   this.nomUser = nomUser;
-  this.monto = monto;
+  this.montoSolicitado = monto;
   this.tasa = tasa;
   this.moneda = moneda;
   this.iva = IVA;
@@ -209,3 +208,4 @@ const prestamo1 = new Prestamo(
 );
 
 console.log(prestamo1);
+alert(JSON.stringify(prestamo1));
