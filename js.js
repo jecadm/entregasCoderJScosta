@@ -23,7 +23,8 @@ let totalC = [];
 monto = parseInt(
   prompt("Ingrese el monto del préstamos a solicitar: ".toLocaleUpperCase())
 );
-// PROXIMA ENTREGA SE CAMBIARÁ EL TRUE DEL WHILE POR UNA CONDICION, NO ES BUENA PRACTICA USAR BOLEANO AHI
+// PROXIMA ENTREGA SE CAMBIARÁ EL TRUE DEL WHILE POR UNA CONDICION,
+//NO ES BUENA PRACTICA USAR BOLEANO AHI,
 while (true) {
   let num = monto;
   /*
@@ -89,8 +90,9 @@ console.log(cuotasFinal);
 cuotasSelec = Number(
   prompt(`Selecciones cantidad de cuotas ${cuotasa}: `.toLocaleUpperCase())
 );
-// PROXIMA ENTREGA SE CAMBIARA EL TRUE DEL WHILE POR UNA CONDICION, NO ES BUENA PRACTICA USAR BOLEANO AHI
-while (true) {
+// PROXIMA ENTREGA SE CAMBIARA EL TRUE DEL WHILE POR UNA CONDICION,
+// NO ES BUENA PRACTICA USAR BOLEANO AHI
+while (cuotasSelec != "") {
   let num = cuotasSelec;
   /*
 isNaN(num) =  es igual a
@@ -206,6 +208,20 @@ const prestamo1 = new Prestamo(
   cuotasSelec,
   cuotasFinal
 );
+// NUEVO OBJETO A PARTIR DEL USURIO Y EL PRESTAMO
 
 console.log(prestamo1);
-alert(JSON.stringify(prestamo1));
+
+// MONTRANDO EL OBJETO EN ALERT CON METODOS DE JSON
+alert(JSON.stringify(prestamo1, null, " "));
+
+// FOR PARA ITERAR EL OBJETO PRESTAMO1 PARA MOSTRAR EL ALERT MODO LISTA SU CONTENIDO
+let result = [];
+for (let l in prestamo1) {
+  if (prestamo1.hasOwnProperty(l)) {
+    result.push(l + ": " + prestamo1[l]);
+  }
+}
+alert(result.join("\n"));
+// FOR PARA ITERAR EL OBJETO PRESTAMO1 PARA MOSTRAR EL ALERT MODO LISTA SU CONTENIDO
+
