@@ -31,7 +31,7 @@ ones.
 - Estructura HTML del proyecto. -> OK
 - Variables de JS necesarias. -> OK
 - Funciones esenciales del proceso a simular. -> OK
-- Objetos de JS. -> Haciendo
+- Objetos de JS. -> OK
 - Arrays. -> OK
 - Métodos de búsqueda y filtrado sobre el Array. -> OK
 
