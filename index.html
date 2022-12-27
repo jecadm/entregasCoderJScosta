@@ -1,18 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>SegundaPreEntregaCosta</title>
-    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Javascript - CoderHouse -Costa</title>
+
+  <link rel="stylesheet" href="bootstrap.css" />
+  <!-- CDN sweetalert2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- CDN Toastify -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <!-- CDN Luxon -->
+  <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
+
 </head>
+
 <body>
-    <h1>SegundaPreEntregaCosta - Simulador de créditos</h1>
-    
-    
-  <script src="./js.js"></script>  
+  <!-- MENU DE NAVEGACIÓN -->
+  <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Préstamos</span>
+      <button class="btn btn-primary"><a href="#mi">Mi prestamo</a></button>
+    </div>
+  </nav>
+  <div class="container">
+    <h2>Préstamos</h2>
+    <p>Conseguí tu préstamo de forma rápida y sencilla, incluso si no sos cliente del Banco.</p>
+  </div>
+  <!-- CONTENEDOR DE PRODUCTOS -->
+
+  <div class="card mb-3">
+    <h3 class="card-header">Card header</h3>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+    </div>
+    <svg xmlns="./img/" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+      <rect width="100%" height="100%" fill="#868e96"></rect>
+      <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+    </svg>
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+       <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+        </div>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="container-products">
+    <input type="text" class="form-control mb-3" placeholder="Buscar" id="buscador" />
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Personales</h5>
+            <img src="./img/340x195Personal.png" alt="">
+            <p class="card-text">Hacé realidad tus proyectos solicitando un préstamo personal.
+              Hasta 1.000.000 pesos a tasa fija,
+              con un máximo de 60 cuotas</p>
+            <button class="btn btn-primary" id="boton">Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Automotor</h5>
+            <img src="./img/img_prest_autos_341x196.png" alt="">
+            <p class="card-text">¿Necesitás un auto? Para que puedas llegar a donde quieras, te financiamos hasta el
+              100% de tu 0 Km. o usado. Sin prenda y a sola firma.</p>
+            <button class="btn btn-primary" id="boton">Agregar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Hipotecarios</h5>
+            <img src="./img/prestamo-hipotecario.png" alt="">
+            <p class="card-text">Abrí la puerta de tu hogar ideal. Financiación en pesos para comprar o remodelar tu
+              vivienda.</p>
+            <button class="btn btn-primary" id="boton">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ESPACIO PARA MOSTRAR INFO DEL CARRITO -->
+  <div id="carrito"><p>espacio del carrito</p></div>
+  <!-- FORMULARIO DE CONTACTO -->
+  <div class="container">
+    <div class="container">
+      <h2>FORMULARIO DE CONTACTO</h2>
+    </div>
+    <form id="formulario" action="/redireccion">
+
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Nombre y Apellido</label>
+        <input type="text" class="form-control" id="nombre" />
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Correo Electrónico</label>
+        <input type="text" class="form-control" id="correo" />
+      </div>
+      <button type="submit" class="btn btn-outline-success">
+        Enviar información
+      </button>
+  </div>
+  </form>
+  <!-- ESPACIO PARA MOSTRAR INFO DEL FORMULARIO -->
+  <div class="container">
+    <div class="info"></div>
+  </div>
+
+  <!-- FORMULARIO DE RESERVA -->
+  <div class="container">
+    <select class="form-select mt-5" id="day">
+      <option selected>Selecciona el día</option>
+      <option value="Lunes">Lunes</option>
+      <option value="Martes">Martes</option>
+      <option value="Miercoles">Miercoles</option>
+      <option value="Jueves">Jueves</option>
+      <option value="Viernes">Viernes</option>
+    </select>
+
+    <select class="form-select mt-5" id="hr">
+      <option selected>Selecciona la hora</option>
+      <option value="15:00">15:00 Hs</option>
+      <option value="18:00">18:00 Hs</option>
+      <option value="21:00">21:00 Hs</option>
+    </select>
+
+    <button type="submit" class="btn-reservar btn btn-primary mt-5">Reservar</button>
+    <div class="selector mt-5">Detalles de tu reserva</div>
+  </div>
+  <button class="alert-btn">Alertas</button>
+  <footer>
+
+  </footer>
+  <!-- SCRIPTS -->
+  <script src="./scripts/afterDom.js"></script>
+  <!-- Script Toastify -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 </body>
 
 </html>

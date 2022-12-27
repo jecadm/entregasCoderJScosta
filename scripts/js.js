@@ -19,7 +19,7 @@ let totalC = [];
 // Intereses.
 // Impuestos.
 
-// SOLICITA MONTO PARA COTIZAR
+// SOLICITA MONTO PARA COTIZAR g
 monto = parseInt(
   prompt("Ingrese el monto del préstamos a solicitar: ".toLocaleUpperCase())
 );
