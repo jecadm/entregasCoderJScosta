@@ -32,7 +32,7 @@ while (true) {
 hasta que sea insertado un numero terminará el ciclo
 */
   if (!isNaN(num) && num != null && num != "") {
-    alert(
+    console.log(
       `Excelente monto, va a solicitar cotizacion por $${num}`.toLocaleUpperCase()
     );
     break;
@@ -105,7 +105,7 @@ hasta que sea insertado un número terminará el ciclo */
     num === 12 ||
     num === 24
   ) {
-    alert(
+    console.log(
       `Excelente, va a solicitar cotizacion por "${num}" Cuotas`.toLocaleUpperCase()
     );
     break;
@@ -127,7 +127,7 @@ switch (cuotasSelec) {
   //podría haber usado en los multiplicadores la variable cuotaSelec pero me gusto asi.
 
   case 1:
-    alert(
+    console.log(
       `Vas a pagar un total de $${
         cuotasFinal[0] * 1
       }.- en ${cuotasSelec} Cuotas de $${
@@ -137,7 +137,7 @@ switch (cuotasSelec) {
 
     break;
   case 3:
-    alert(
+    console.log(
       `Vas a pagar un total de $${
         cuotasFinal[1] * 3
       }.- en ${cuotasSelec} Cuotas de $${
@@ -146,7 +146,7 @@ switch (cuotasSelec) {
     );
     break;
   case 6:
-    alert(
+    console.log(
       `Vas a pagar un total de $${
         cuotasFinal[2] * 6
       }.- en ${cuotasSelec} Cuotas de $${
@@ -155,7 +155,7 @@ switch (cuotasSelec) {
     );
     break;
   case 12:
-    alert(
+    console.log(
       `Vas a pagar un total de $${
         cuotasFinal[3] * 12
       }.- en ${cuotasSelec} Cuotas de $${
@@ -164,7 +164,7 @@ switch (cuotasSelec) {
     );
     break;
   case 24:
-    alert(
+    console.log(
       `Vas a pagar un total de $${
         cuotasFinal[4] * 24
       }.- en ${cuotasSelec} Cuotas de $${
@@ -173,7 +173,7 @@ switch (cuotasSelec) {
     );
     break;
   default:
-    cuotasSelec = alert(
+    cuotasSelec = console.log(
       "No ha seleccionado nada: Si lo desea puede volver a intentar el proceso".toLocaleUpperCase()
     );
     break;
@@ -212,16 +212,16 @@ const prestamo1 = new Prestamo(
 
 console.log(prestamo1);
 
-// MONTRANDO EL OBJETO EN ALERT CON METODOS DE JSON
-alert(JSON.stringify(prestamo1, null, " "));
+// MONTRANDO EL OBJETO EN console.log CON METODOS DE JSON
+console.log(JSON.stringify(prestamo1, null, " "));
 
-// FOR PARA ITERAR EL OBJETO PRESTAMO1 PARA MOSTRAR EL ALERT MODO LISTA SU CONTENIDO
+// FOR PARA ITERAR EL OBJETO PRESTAMO1 PARA MOSTRAR EL console.log MODO LISTA SU CONTENIDO
 let result = [];
 for (let l in prestamo1) {
   if (prestamo1.hasOwnProperty(l)) {
     result.push(l + ": " + prestamo1[l]);
   }
 }
-alert(result.join("\n"));
-// FOR PARA ITERAR EL OBJETO PRESTAMO1 PARA MOSTRAR EL ALERT MODO LISTA SU CONTENIDO
+console.log(result.join("\n"));
+// FOR PARA ITERAR EL OBJETO PRESTAMO1 PARA MOSTRAR EL console.log MODO LISTA SU CONTENIDO
 
