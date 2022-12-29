@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Javascript - CoderHouse -Costa- prestamo</title>
+
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+ 
+
+</head>
+
+<body>
+  <!-- MENU DE NAVEGACIÓN -->
+  <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">TheSukBanc</span>
+      <div class="alert-blak" id="ultimoMontoSolicitado">
+
+      </div>
+      
+    </div>
+  </nav>
+  <div class="container">
+    <h2>Préstamos</h2>
+    <p>Conseguí tu préstamo de forma rápida y sencilla, incluso si no sos cliente del Banco.</p>
+    <!-- <input type="search" class="form-control mb-3" placeholder="Buscar tipo de prestamo" id="search" /> -->
+    <div>
+      <h3> Selecciona el tipo de préstamo, el monto y el plazo</h3>
+      <div class="simuladorContent">
+
+        <section name="form_prestamo" class="form-horizontal formu" id="form_prestamo" novalidate="novalidate">
+
+          <div class="formItems">
+
+            <div id="container_msg"></div>
+
+
+
+            <div class="input-group mb-3">
+              <label class="col-sm-2 control-label">Seleccioná tipo de préstamo</label>
+              <select class="form-control" id="paquete" name="paquete" >
+                <option selected="selected" value="">Seleccioná Tipo</option>
+                <option value="1">Prestamo Personal</option>
+                <option value="2">Prestamo Automotor</option>
+                <option value="3">Prestamo Hipotecarios</option>
+                <option value="7">Sin Paquete</option>
+              </select>
+            </div>
+            <div class="input-group mb-3">
+              <label class="col-sm-2 control-label">Monto</label>
+              <input id="monto_solicitado" name="monto_solicitado" type="number" class="form-control numeric">
+              <span class="aclara">(Máximo 100000)</span>
+            </div>
+
+
+            <div class="input-group mb-3">
+              <label class="col-sm-2 control-label">Plazo en meses </label>
+              <select class="form-control" id="plazo" name="plazo">
+                <option value="">Seleccioná el plazo</option>
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="6">6</option>
+                <option value="12">12</option>
+                <option value="24">24</option>
+                <option value="36">36</option>
+
+              </select> <span class="aclara">(Máximo 36 meses)</span>
+
+            </div>
+
+
+            <div id="legalesFormulario" class="legal">
+              <p>El presente desarrollo no constituye oferta del Banco, sólo tiene carácter
+               orientativo para el interesado.</p>
+              
+            </div>
+            
+          </div>
+          <div id="botoneraSimulador">
+            <button type="submit" class="btn btn-success" id="calcularSimuladores">CALCULAR</button>
+          
+            <button  class="btn btn-info" id="refresh">SOLICITAR OTRO CREDITO</button>
+          </div>
+        </section>
+
+        <div id="detalleCuotas"></div>
+        <div id="resultadosImportesYTasas">
+         
+
+        </div>
+
+    </div>
+  </div>
+  </div>
+
+
+
+  <!-- ESPACIO PARA MOSTRAR INFO DEL FORMULARIO -->
+  <div class="container">
+    <div class="info"></div>
+  </div>
+
+  <!-- FORMULARIO DE SOLICITUD DE PRESTAMO SELECCIONADO -->
+  <div class="container">
+    <div class="container">
+      <h2>SOLICITAR PRÉSTAMO SELECCIONADO</h2>
+    </div>
+    <form id="formularioClient" action="/redirection">
+
+      <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Nombre</label>
+        <div class="infoNombre"></div>
+        <input type="text" class="form-control" id="nameClient" />
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Correo Electrónico</label>
+        <div class="infoEmail"></div>
+        <input type="email" class="form-control" id="emailClient" />
+      </div>
+      <button type="submit" class="btn btn-outline-success">
+        Solicitar Préstamo
+      </button>
+  </div>
+  </form>
+
+
+
+  <footer>
+ <!-- Copyright -->
+ <div class="footer-copyright text-center py-3">© 2022 Copyright:
+  <a href="#"> <span>Jeronimo Costa</span>- Desarrollador web </a>
+</div>
+<!-- Copyright -->
+  </footer>
+  <!-- SCRIPTS -->
+  <script src="./js.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+
+</html>
