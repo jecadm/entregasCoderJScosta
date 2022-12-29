@@ -1,49 +1,30 @@
-# CoderHouseJavaScript
+# Deberás agregar y entregar: 
+## uso de JSON y Storage, 
+## DOM y eventos del usuario, 
 
-## Segunda entrega
+# Objetivos generales
+## Codificar funciones de procesos esenciales y notificación de resultados por HTML, añadiendo interacción al simulador.
+## Ampliar y refinar el flujo de trabajo del script en términos de:
+### captura de eventos, 
+### procesamiento del simulador 
+### notificación de resultados en forma de salidas por HTML, 
+### modificando el DOM.
 
-### Deberás entregar la estructura del proyecto, las variables de JS necesarias y los objetos de JS, correspondientes a la segunda entrega de tu proyecto final.
-
-### Codificar la funcionalidad inicial del simulador.
-
-### Identificar el flujo de trabajo del script en términos de captura de entradas ingresadas por el usuario, procesamiento esencial del simulador y notificación de resultados en forma de salida.
-
-### Página HTML y código fuente en JavaScript. Debe identificar el apellido del alumno/a en el nombre de archivo comprimido por “PreEntrega2+Apellido”.
-
-### resolver la entrega y subirla.
-
-## Objetivos específicos
-
-### Consigna
-
-- Capturar entradas mediante prompt().
-- Declarar variables y objetos necesarios para simular el proceso seleccionado.
-- Crear funciones y/o métodos para realizar operaciones (suma, resta, concatenación, división, porcentaje, etc).
-- Efectuar una salida, que es el resultado de los datos procesados, la cual puede hacerse por alert() o console.log().
-
-### Sugerencias
-
-Si bien, por el momento solo podemos hacer entradas con prompt() y salidas con alert() o console.log(), es suficiente para empezar a pensar el proceso a simular en términos de entradas, variables, estructuras, funciones, métodos y salidas. Verificar Rúbrica
-ones.
+# Objetivos específicos
+## Definir eventos a manejar y su función de respuesta.
+## Modificar el DOM, ya sea para definir elementos al cargar la página o para realizar salidas de un procesamiento.
+## Almacenar datos (clave-valor) en el Storage y recuperarlos
 
 # Se debe entregar
+## Implementación con uso de JSON y Storage.
+## Modificación del DOM y detección de eventos de usuario.
 
-- Estructura HTML del proyecto. -> OK
-- Variables de JS necesarias. -> OK
-- Funciones esenciales del proceso a simular. -> OK
-- Objetos de JS. -> OK
-- Arrays. -> OK
-- Métodos de búsqueda y filtrado sobre el Array. -> OK
+### Página HTML y  código fuente en JavaScript. 
+Debe identificar el apellido del alumno/a en el nombre de archivo comprimido por “Idea+Apellido”.
 
-### Para tener en cuenta
+# sugerencias
+### En la segunda entrega buscamos programar el código esencial para garantizar dinamismo en el HTML con JavaScript. En relación con la primera entrega, ya no usamos alert() como salida y promt() como entrada, ahora modificamos el DOM para las salidas y capturamos los eventos del usuario sobre inputs y botones para las entradas. Verificar Rúbrica
 
-- La estructura hace referencia a el html y css, correspondientes al armado de la página general, pero que el JS que se evalúa, aún no está interactuando con ella.
 
-### Ejemplo en uso
 
-- Calcular costo total de productos y/o servicios seleccionados por el usuario.
-- Calcular pagos en cuotas sobre un monto determinado.
-- Calcular valor final de un producto seleccionado en función de impuestos y descuentos.
-- Calcular tiempo de espera promedio en relación con la cantidad de turnos registrados.
-- Calcular edad promedio de personas registradas.
-- Calcular nota final de alumnos ingresados.
+
