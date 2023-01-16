@@ -15,9 +15,10 @@ let totalC = [];
 let paquete = "";
 let cuotasSuma = 0;
 
+
 // SOLICITA MONTO PARA COTIZAR
-monto = document.querySelector("#monto_solicitado");
 paquete = document.querySelector("#paquete");
+monto = document.querySelector("#monto_solicitado");
 cuotasSelec = document.querySelector("#plazo");
 
 let solicitud = document.querySelector(".simuladorContent");
@@ -32,6 +33,7 @@ botoneraSimulador.addEventListener("click", function () {
   paquete = document.querySelector("#paquete").value;
   monto = document.querySelector("#monto_solicitado").value;
   cuotasSelec = document.querySelector("#plazo").value;
+  
 
 
   let cantidadCuotas = cuotasSelec;
