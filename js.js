@@ -46,8 +46,8 @@ botoneraSimulador.addEventListener("click", function () {
   
 
 
-  let cantidadCuotas = plazoSeleccionado;
-  let pagoMes = monto / cantidadCuotas;
+  /* let cantidadCuotas = plazoSeleccionado; */
+  let pagoMes = monto / plazoSeleccionado;
   rest = (pagoMes * tasa) / 100;
   pagoMes = pagoMes + rest;
   let detalleCuotas = document.querySelector("#detalleCuotas");
