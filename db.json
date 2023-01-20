@@ -1,0 +1,13 @@
+[
+
+    {"producto": "Prestamo Personal", "tasa": 150, "id": 1},
+    
+    {"producto": "Prestamo Automotor", "tasa": 100, "id": 2},
+    
+    {"producto": "Prestamo Hipotecarios", "tasa": 50, "id": 3},
+    
+    {"producto": "sin Paquete", "tasa": 200, "id": 4}
+    
+   
+    
+    ]

@@ -1,9 +1,8 @@
-
-
-//VARIABLES GLOBALES YA SE QUE HYA VARIABLE QUE NO SE USAN AHORA Y MUCHOS ARRAY VACIOS SON ARA MAS ADELANTA LAS USO DE GUIA 
+//VARIABLES GLOBALES YA SE QUE HYA VARIABLE QUE NO SE USAN AHORA Y MUCHOS ARRAY VACIOS SON ARA MAS ADELANTA LAS USO DE GUIA
+let tipoDePreastamo = "";
 let nomUser = "";
 /* let monto = 0; */
-let tasa = 50;
+let tasa = 0;
 let moneda = "Pesos";
 const IVA = 21;
 let cuotas = [1, 3, 6, 12, 24, 36];
@@ -25,6 +24,36 @@ function Prestamo() {
 }
 //OBJETO PARA ARMAR EL PAQUETE ACEPTADO
 
+const tipoDePrestamo = document.querySelector("#paquete");
+//Tipos de Prestamos
+
+console.log(tipoDePreastamo)
+
+  
+ const cargarTipoDePrestamos = ()=>{
+
+   fetch("./db.json")
+   .then((res) => res.json())
+   .then((tasa) => {
+     tasa.foreach((tipoDePreastamo) => {
+       const li = document.createElement("li");
+       
+       li.innerHTML = `
+       
+       <h4>${tipoDePreastamo.nombre}</h4>
+       
+       value = "${tipoDePreastamo.id}"
+       
+       `;
+       
+       selected.append(li);
+      });
+    });
+    
+    console.log(lista)
+  };
+
+cargarTipoDePrestamos()
 
 // SOLICITA MONTO PARA COTIZAR
 /* paquete = document.querySelector("#paquete");
@@ -37,14 +66,9 @@ let botoneraSimulador = document.querySelector("#botoneraSimulador");
 // DIVIDE EL MONTO POR LA CUOTAS Y LES AGREGA LA TASA, CREA EL OBJETO Y LO GUARDA EN LOCALSTORAGE
 
 botoneraSimulador.addEventListener("click", function () {
-
- 
-
   paquete = document.querySelector("#paquete").value;
   monto = document.querySelector("#monto_solicitado").value;
   plazoSeleccionado = document.querySelector("#plazo").value;
-  
-
 
   /* let cantidadCuotas = plazoSeleccionado; */
   let pagoMes = monto / plazoSeleccionado;
@@ -59,7 +83,6 @@ botoneraSimulador.addEventListener("click", function () {
   </div>
   `;
 
-
   // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
 
   const prestamo1 = new Prestamo(
@@ -70,19 +93,14 @@ botoneraSimulador.addEventListener("click", function () {
     plazoSeleccionado,
     pagoMes
   );
- // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
-
+  // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
 
   //GUARDADO DEL OBJETO EN LOCAL STORAGE
   const prestamosOBJ = JSON.stringify(prestamo1);
   localStorage.setItem("prestamo1", prestamosOBJ);
-
-  });
-
-
+});
 
 // DIVIDE EL MONTO POR LA CUOTAS Y LES AGREGA LA TASA, CREA EL OBJETO Y LO GUARDA EN LOCALSTORAGE
-
 
 //RECUPERA LOS DATOS DEL LOCALSTORAGE PARA USARLOS
 const prestamo1 = JSON.parse(localStorage.getItem("prestamo1"));
@@ -97,13 +115,8 @@ ultimoMontoSolicitado.innerHTML = `
   Ùltimo monto solicitado ${prestamo1.montoSolicitado}
   </h6>
    </div>
-   `
-   
-   
-   
-   ;
+   `;
 //MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
-
 
 //VARIABLES PARA EN SUBMIT
 let nomUserF = document.querySelector("#nameClient");
@@ -178,9 +191,7 @@ const printInfo = formularioClient.addEventListener("submit", function (e) {
 });
 
 //BOTON PARA RECARGAR LA PAGINA PARA PODER SOLICITAR OTRO CALCULO
-let refresh = document.querySelector('#refresh');
-refresh.addEventListener('click', _ => {
-            location.reload();
+let refresh = document.querySelector("#refresh");
+refresh.addEventListener("click", (_) => {
+  location.reload();
 });
-
-
