@@ -43,7 +43,7 @@ cargarTipoDePrestamos();
 
 // SOLICITA MONTO PARA COTIZAR
 
-//DOM
+//DOM trae botones
 let solicitud = document.querySelector(".simuladorContent");
 let botoneraSimulador = document.querySelector("#botoneraSimulador");
 
@@ -58,7 +58,7 @@ botoneraSimulador.addEventListener("click", function () {
   //VALIDACION DE SELECCION TIPO DE PRESTAMO
   if (tipoDePrestamo.value === "" ) {
     Swal.fire({
-      title: "error! Debe seleccionar un tipo de prestamo",
+      title: "error! Debe seleccionar un tipo de prestamo2",
       
       text: "Debe completar todos los datos para solicitar el prestamo",
       
@@ -342,10 +342,10 @@ function PrestamoParaEnviar() {
 
 //BOTON PARA RECARGAR LA PAGINA PARA PODER SOLICITAR OTRO CALCULO
 
-let refresh = document.querySelector("#refresh");
+/* let refresh = document.querySelector("#refresh");
 refresh.addEventListener("click", (_) => {
   location.reload();
-});
+}); */
 
 
 //RECUPERA LOS DATOS DEL LOCALSTORAGE PARA USARLOS
