@@ -4,14 +4,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Javascript - CoderHouse -Costa- prestamo</title>
+  <title>Javascript - CoderHouse -Costa- prétamo</title>
 
   <!--Bootstrap-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <!-- Librerias -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- favicon -->
-  <link rel="icon"  href="https://www.ultracore.com.ar/wp-content/uploads/2019/02/cloud_u.png"/>
+  <link rel="icon" href="https://www.ultracore.com.ar/wp-content/uploads/2019/02/cloud_u.png" />
 </head>
 
 <body>
@@ -22,10 +23,10 @@
       <div class="alert-blak" id="ultimoMontoSolicitado">
 
       </div>
-      
+
     </div>
   </nav>
-  
+
   <div class="container">
     <h2>Préstamos</h2>
     <p>Conseguí tu préstamo de forma rápida y sencilla, incluso si no sos cliente del Banco.</p>
@@ -44,22 +45,22 @@
 
             <div class="input-group mb-3">
               <label class="col-sm-2 control-label">Seleccioná tipo de préstamo</label>
-              <select class="form-control" id="paquete" name="paquete" >
-               <option selected="selected"  value="" >Seleccioná Tipo</option> 
-               <!-- contenido desde js line 35 -->
+              <select class="form-control" id="paquete" name="paquete">
+                <option selected="selected" value="">Seleccioná Tipo</option>
+                <!-- contenido desde js line 35 -->
               </select>
             </div>
             <div class="input-group mb-3">
               <label class="col-sm-2 control-label">Monto $</label>
 
-              <input id="monto_solicitado" name="monto_solicitado" type="number" class="form-control numeric" >
+              <input id="monto_solicitado" name="monto_solicitado" type="number" class="form-control numeric" required>
               <span class="aclara">,-</span>
             </div>
 
 
             <div class="input-group mb-3">
               <label class="col-sm-2 control-label">Plazo en meses </label>
-              <select class="form-control" id="plazo" name="plazo" >
+              <select class="form-control" id="plazo" name="plazo">
                 <option value="1">Seleccioná el plazo</option>
                 <option value="1">1</option>
                 <option value="3">3</option>
@@ -75,32 +76,32 @@
 
             <div id="legalesFormulario" class="legal">
               <p>El presente desarrollo no constituye oferta del Banco, sólo tiene carácter
-               orientativo para el interesado.</p>
-              
+                orientativo para el interesado.</p>
+
             </div>
-            
+
           </div>
           <div id="botoneraSimulador">
             <button type="submit" class="btn btn-success" id="calcularSimuladores">CALCULAR</button>
-          
+
             <!-- <button  class="btn btn-info" id="refresh">Limpiar:
               <span>Presionar 2 veces limpia storage</span>
             </button> -->
-            
+
           </div>
         </section>
 
         <div id="detalleCuotas"></div>
         <div id="resultadosImportesYTasas">
-         
+
 
         </div>
 
+      </div>
     </div>
   </div>
-  </div>
 
-<br>
+  <br>
 
   <!-- ESPACIO PARA MOSTRAR INFO DEL FORMULARIO -->
   <div class="container">
@@ -112,7 +113,7 @@
     <div class="container">
       <h2>SOLICITAR PRÉSTAMO SELECCIONADO</h2>
     </div>
-    <form id="formularioClient" >
+    <form id="formularioClient">
 
       <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Nombre</label>
@@ -133,15 +134,17 @@
 
 
   <footer>
- <!-- Copyright -->
- <div class="footer-copyright text-center py-3">© 2022 Copyright:
-  <a href="#"> <span>Jeronimo Costa</span>- Desarrollador web </a>
-</div>
-<!-- Copyright -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+      <a href="#"> <span>Jeronimo Costa</span>- Desarrollador web </a>
+    </div>
+    <!-- Copyright -->
   </footer>
   <!-- SCRIPTS -->
   <script src="./js.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 # Proyecto debe contar con:
-## objetos array y metodos de arrays LINE(36, 94, 105, 116,117)
-## funciones y condicionales LINE(25, 185, 150, 168)
+## Objetos array y metodos de arrays LINE(36, 94, 105, 116,117)
+## Funciones y condicionales LINE(25, 185, 150, 168)
 ## Generacion de DOM de forma dinamica Eventos LINE(25,85,132,151,168)
 ## Sintaxis avansada LINE(35, global)
 

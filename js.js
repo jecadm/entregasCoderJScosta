@@ -1,4 +1,4 @@
-//VARIABLES GLOBALES YA SE QUE HYA VARIABLE QUE NO SE USAN AHORA Y MUCHOS ARRAY VACIOS SON ARA MAS ADELANTA LAS USO DE GUIA
+//VARIABLES GLOBALES
 let tipoDePreastamo = "";
 let nomUser = "";
 let tasa = 0;
@@ -79,7 +79,7 @@ botoneraSimulador.addEventListener("click", function () {
   let detalleCuotas = document.querySelector("#detalleCuotas");
   detalleCuotas.innerHTML = `
     <div class="alert alert-black" roler="alert">
-    <h2>De solicitar el credito usted devolveria el prestamo :</h2>
+    <h2>De solicitar el Préstamo usted devolveria:</h2>
     <h4> 
     En ${plazoSeleccionado} Cuotas de $${pagoMes} .- Pesos
     </h4>
@@ -232,14 +232,14 @@ const printInfo = formularioClient.addEventListener("submit", function (e) {
     Swal.fire({
       title: "success",
 
-      text: "Exelenet, la solicitud fue enviada",
+      text: "Excelent, la solicitud fue enviada",
 
       icon: "success",
 
       showDenyButton: true,
       /* showCancelButton: true, */
       denyButtonText: "Volver al Sitio",
-      confirmButtonText: "Calcular otro prestamo",
+      confirmButtonText: "Calcular otro préstamo",
     }).then((result) => {
       /* recarga el sitio */
       if (result.isConfirmed) {
