@@ -11,13 +11,14 @@
 
 ## imputs, y eventos adecuados, salidas coherentes a los datos visualizacion correcta (GENERAL)
 
-definir objetos con porpiedades y metodosrelevantes al constexto : ok
-Emplear arrays para agrupar valores y objetos de forma dinamica : ok
+* definir objetos con porpiedades y metodosrelevantes al constexto :* __ok
+* Emplear arrays para agrupar valores y objetos de forma dinamica :* ok
 
-definir javascript en archivo con informacion estatica en formato JSON: ok
-metodos relevantes al texto ok
-emplear arrays para agrupar valores y objetos.: ok
+* definir javascript en archivo con informacion estatica en formato JSON:* ok
+* metodos relevantes al texto* ok
+* emplear arrays para agrupar valores y objetos.:* ok
 
-todo los nombres de todo debe ser entendible y estar relacionado.: maso
+* todo los nombres de todo debe ser entendible y estar relacionado.:* maso 
+
 # Funcionalidad 100% (testeado en 3 pc y en git , espero que siga funcionando ok)
 
