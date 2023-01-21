@@ -1,11 +1,11 @@
 # Proyecto debe contar con:
-## objetos array y metodos de arrays, 
-## funciones y condicionales
-## Generacion de DOM de forma dinamica Eventos
-## Sintaxis avansada
+## objetos array y metodos de arrays LINE(36, 94, 105, 116,117)
+## funciones y condicionales LINE(25, 185, 150, 168)
+## Generacion de DOM de forma dinamica Eventos LINE(25,85,132,151,168)
+## Sintaxis avansada LINE(35)
 ## Almenos una libreria de usoa relevante. para el proyecto
-## manejo de promesas y FETCH
-## carga de datos desde JSON local o desde una API externa
+## manejo de promesas y FETCH LINE(25)
+## carga de datos desde JSON local o desde una API externa LINE( 29)
 ## uso de STORAGE
 
 ## imputs, y eventos adecuados, salidas coherentes a los datos visualizacion correcta
