@@ -5,20 +5,20 @@
 ## Sintaxis avansada LINE(35, global)
 
 ## Almenos una libreria de usoa relevante. para el proyecto LIBRERIA(sweetalert2)
-## manejo de promesas y FETCH LINE(25)
-## carga de datos desde JSON local o desde una API externa LINE( 29)
-## uso de STORAGE LINE(116, 117, 127,136,278)
+## Manejo de promesas y FETCH LINE(25)
+## Carga de datos desde JSON local o desde una API externa LINE( 29)
+## Uso de STORAGE LINE(116, 117, 127,136,278)
 
-## imputs, y eventos adecuados, salidas coherentes a los datos visualizacion correcta (GENERAL)
+## Imputs, y eventos adecuados, salidas coherentes a los datos visualizacion correcta (GENERAL)
 
-* definir objetos con porpiedades y metodosrelevantes al constexto :* __ok
-* Emplear arrays para agrupar valores y objetos de forma dinamica :* ok
+* definir objetos con porpiedades y metodosrelevantes al constexto : *__ok
+* Emplear arrays para agrupar valores y objetos de forma dinamica :  *__ok
 
-* definir javascript en archivo con informacion estatica en formato JSON:* ok
-* metodos relevantes al texto* ok
-* emplear arrays para agrupar valores y objetos.:* ok
+* definir javascript en archivo con informacion estatica en formato JSON:  *__ok
+* metodos relevantes al texto *__ok
+* emplear arrays para agrupar valores y objetos.:  *__ok
 
-* todo los nombres de todo debe ser entendible y estar relacionado.:* maso 
+* todo los nombres de todo debe ser entendible y estar relacionado.: maso  O__*
 
 # Funcionalidad 100% (testeado en 3 pc y en git , espero que siga funcionando ok)
 
