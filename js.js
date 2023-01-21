@@ -1,14 +1,12 @@
 //VARIABLES GLOBALES YA SE QUE HYA VARIABLE QUE NO SE USAN AHORA Y MUCHOS ARRAY VACIOS SON ARA MAS ADELANTA LAS USO DE GUIA
 let tipoDePreastamo = "";
 let nomUser = "";
-/* let monto = 0; */
 let tasa = 0;
 let moneda = "Pesos";
 const IVA = 21;
 let cuotas = [1, 3, 6, 12, 24, 36];
 let plazoSeleccionado = 0;
 let totalC = [];
-/* let paquete = ""; */
 let cuotasSuma = 0;
 
 //seleccion de elemento en html interaccion DOM
@@ -41,12 +39,11 @@ const cargarTipoDePrestamos = () => {
 //llamar funcion
 cargarTipoDePrestamos();
 
-// SOLICITA MONTO PARA COTIZAR
-
 //DOM trae botones
 let solicitud = document.querySelector(".simuladorContent");
 let botoneraSimulador = document.querySelector("#botoneraSimulador");
 
+// SOLICITA MONTO PARA COTIZAR
 // DIVIDE EL MONTO POR LA CUOTAS Y LES AGREGA LA TASA, CREA EL OBJETO Y LO GUARDA EN LOCALSTORAGE
 
 botoneraSimulador.addEventListener("click", function () {
@@ -54,24 +51,22 @@ botoneraSimulador.addEventListener("click", function () {
   tasa = document.querySelector("#paquete").value;
   monto = document.querySelector("#monto_solicitado").value;
   plazoSeleccionado = document.querySelector("#plazo").value;
-  
+
   //VALIDACION DE SELECCION TIPO DE PRESTAMO
-  if (tipoDePrestamo.value === "" ) {
+  if (tipoDePrestamo.value === "") {
     Swal.fire({
-      title: "error! Debe seleccionar un tipo de prestamo2",
-      
+      title: "error! Debe seleccionar un tipo de prestamo",
+
       text: "Debe completar todos los datos para solicitar el prestamo",
-      
+
       icon: "error",
-      
+
       confirmButtonText: "Volver al formulario",
     });
-  };
+  }
+  //VALIDACION DE SELECCION TIPO DE PRESTAMO
 
-
-
-
-  /* let cantidadCuotas = plazoSeleccionado; */
+  //CALCULA
   let pagoMes = monto / plazoSeleccionado;
   rest = (pagoMes * tasa) / 100;
   pagoMes = pagoMes + rest;
@@ -84,6 +79,7 @@ botoneraSimulador.addEventListener("click", function () {
     </h4>
     </div>
     `;
+  //CALCULA
 
   //OBJETO PARA ARMAR EL PAQUETE ACEPTADO
   function Prestamo() {
@@ -95,6 +91,7 @@ botoneraSimulador.addEventListener("click", function () {
     this.pagoPorMes = pagoMes;
   }
   //OBJETO PARA ARMAR EL PAQUETE ACEPTADO
+
   // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
 
   const prestamo1 = new Prestamo(
@@ -105,13 +102,14 @@ botoneraSimulador.addEventListener("click", function () {
     plazoSeleccionado,
     pagoMes
   );
-  // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
+ 
 
   //GUARDADO DEL OBJETO EN LOCAL STORAGE
   const prestamosOBJ = JSON.stringify(prestamo1);
   localStorage.setItem("prestamo1", prestamosOBJ);
+ //GUARDADO DEL OBJETO EN LOCAL STORAGE
 
-  //Monstar informcacion avanzada del prestamo
+  //Monstar informcacion en html avanzada del prestamo
   info.innerHTML = `
     
       <div class="alert alert-dark" ">
@@ -133,7 +131,7 @@ botoneraSimulador.addEventListener("click", function () {
       
       
       `;
-  //Monstar informcacion avanzada del prestamo
+  //Monstar informcacion en html avanzada del prestamo
 });
 
 // DIVIDE EL MONTO POR LA CUOTAS Y LES AGREGA LA TASA, CREA EL OBJETO Y LO GUARDA EN LOCALSTORAGE
@@ -141,68 +139,16 @@ botoneraSimulador.addEventListener("click", function () {
 //RECUPERA LOS DATOS DEL LOCALSTORAGE PARA USARLOS
 const prestamo1 = JSON.parse(localStorage.getItem("prestamo1"));
 
-//MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
-/* ultimoMontoSolicitado = document.querySelector("#ultimoMontoSolicitado");
-
-ultimoMontoSolicitado.innerHTML = `
-  <div>
-  <p>si ya solicitaste o Calculaste un monto, deberia aparecer aquí abajo "sacado de storage"</p>
-  </div>
-  <div class="alert alert-dark" ">
-  <h6>
-  Ùltimo monto calculado $ ${prestamo1.montoSolicitado}.-
-  </h6>
-  </div>
-  
-  `; */
-//MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
-
 //VARIABLES PARA EN SUBMIT
 let nomUserF = document.querySelector("#nameClient");
 let emailClient = document.querySelector("#emailClient");
 let infoNombre = document.querySelector(".infoNombre");
 let infoEmail = document.querySelector(".infoEmail");
-console.log(nomUserF,infoNombre,emailClient,infoEmail)
-/* nomUserF.addEventListener("input", function () {
-  //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
-  if (nomUserF.value === "") {
-    infoNombre.innerHTML = `
-    
-    <div class="alert alert-danger" role="alert">
-    <h5>
-    Debes poner un Nombre
-    </h5>
-    
-    
-    </div>
-    
-    
-    `;
-  }
-});
-emailClient.addEventListener("input", function () {
-  //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
-  if (emailClient.value === "") {
-    infoEmail.innerHTML = `
-    
-    <div class="alert alert-danger" role="alert">
-    <h5>
-    Debes poner un correo valido
-    </h5>
-    
-    
-    </div>
-    
-    
-    `;
-  }
-}); */
-
 let formularioClient = document.querySelector("#formularioClient");
 let info = document.querySelector(".info");
 
 //monstrar formulario Y Validaciones
-//BOTON PARA RECARGAR LA PAGINA PARA PODER SOLICITAR OTRO CALCULO
+
 
 nomUserF.addEventListener("input", function () {
   //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
@@ -219,8 +165,8 @@ nomUserF.addEventListener("input", function () {
       
       
       `;
-    }
-  });
+  }
+});
 emailClient.addEventListener("input", function () {
   //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
   if (nomUserF.value === "") {
@@ -236,69 +182,58 @@ emailClient.addEventListener("input", function () {
       
       
       `;
-    }
+  }
 });
 //accion de enviar la informacion
-  
+
 const printInfo = formularioClient.addEventListener("submit", function (e) {
   e.preventDefault();
-  if (emailClient.value === "" || nomUserF.value === "" ) {
+  if (emailClient.value === "" || nomUserF.value === "") {
     Swal.fire({
       title: "error! Faltan Datos en el formulario",
-      
+
       text: "Debe completar todos los datos para solicitar el prestamo",
-      
+
       icon: "error",
-      
+
       confirmButtonText: "Volver al formulario",
     });
-   
   } else {
+    const fecha = new Date();
 
-const fecha = new Date();
+    //OBJETO PARA ARMAR EL PAQUETE a ENVIAR
+    function PrestamoParaEnviar() {
+      this.montoSolicitado = monto;
+      this.tasa = tasa;
+      this.moneda = moneda;
+      this.iva = IVA;
+      this.cuotas = plazoSeleccionado;
+      this.nomUserF = nomUserF;
+      this.emailClient = emailClient;
+      this.fecha = fecha;
+    }
+    //OBJETO PARA ARMAR EL PAQUETE a ENVIAR
+    // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
 
-//OBJETO PARA ARMAR EL PAQUETE a ENVIAR
-function PrestamoParaEnviar() {
-  this.montoSolicitado = monto;
-  this.tasa = tasa;
-  this.moneda = moneda;
-  this.iva = IVA;
-  this.cuotas = plazoSeleccionado;
-  this.nomUserF  = nomUserF;
-  this.emailClient = emailClient;
-  this.fecha = fecha;
-}
-//OBJETO PARA ARMAR EL PAQUETE a ENVIAR
-  // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
-
-  const PrestamoParaEnviar1 = new PrestamoParaEnviar(
-    monto,
-    tasa,
-    moneda,
-    IVA,
-    plazoSeleccionado,
-    nomUserF,
-    emailClient,
-    fecha
-  );
-  // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
-  const prestamosEnviado = JSON.stringify(PrestamoParaEnviar1);
-  localStorage.setItem("PrestamoParaEnviar1", prestamosEnviado);
-
-
-
-
-
-
-
-
-
+    const PrestamoParaEnviar1 = new PrestamoParaEnviar(
+      monto,
+      tasa,
+      moneda,
+      IVA,
+      plazoSeleccionado,
+      nomUserF,
+      emailClient,
+      fecha
+    );
+    // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
+    const prestamosEnviado = JSON.stringify(PrestamoParaEnviar1);
+    localStorage.setItem("PrestamoParaEnviar1", prestamosEnviado);
 
     Swal.fire({
       title: "success",
-      
+
       text: "Exelenet, la solicitud fue enviada",
-      
+
       icon: "success",
 
       showDenyButton: true,
@@ -312,8 +247,8 @@ function PrestamoParaEnviar() {
       } else if (result.isDenied) {
         Swal.fire(
           "Si lo deseas puedes presionar el boton Celeste para calcular otro prestamo"
-          );
-        }
+        );
+      }
     });
     info.innerHTML = `
     
@@ -340,16 +275,10 @@ function PrestamoParaEnviar() {
   }
 });
 
-//BOTON PARA RECARGAR LA PAGINA PARA PODER SOLICITAR OTRO CALCULO
-
-/* let refresh = document.querySelector("#refresh");
-refresh.addEventListener("click", (_) => {
-  location.reload();
-}); */
-
-
 //RECUPERA LOS DATOS DEL LOCALSTORAGE PARA USARLOS
-const PrestamoParaEnviar1 = JSON.parse(localStorage.getItem("PrestamoParaEnviar1"));
+const PrestamoParaEnviar1 = JSON.parse(
+  localStorage.getItem("PrestamoParaEnviar1")
+);
 
 //MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
 ultimoMontoSolicitado = document.querySelector("#ultimoMontoSolicitado");
