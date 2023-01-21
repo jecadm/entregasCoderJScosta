@@ -4,20 +4,20 @@
 ## Generacion de DOM de forma dinamica Eventos LINE(25,85,132,151,168)
 ## Sintaxis avansada LINE(35, global)
 
-## Almenos una libreria de usoa relevante. para el proyecto
+## Almenos una libreria de usoa relevante. para el proyecto LIBRERIA(sweetalert2)
 ## manejo de promesas y FETCH LINE(25)
 ## carga de datos desde JSON local o desde una API externa LINE( 29)
 ## uso de STORAGE LINE(116, 117, 127,136)
 
-## imputs, y eventos adecuados, salidas coherentes a los datos visualizacion correcta
+## imputs, y eventos adecuados, salidas coherentes a los datos visualizacion correcta (GENERAL)
 
-definir objetos con porpiedades y metodosrelevantes al constexto
-Emplear arrays para agrupar valores y objetos de forma dinamica 
+definir objetos con porpiedades y metodosrelevantes al constexto : ok
+Emplear arrays para agrupar valores y objetos de forma dinamica : ok
 
-definir javascript en archivo con informacion estatica en formato JSON 
-metodos relevantes al texto
-emplear arrays para agrupar valores y objetos.
+definir javascript en archivo con informacion estatica en formato JSON: ok
+metodos relevantes al texto ok
+emplear arrays para agrupar valores y objetos.: ok
 
-todo los nombres de todo debe ser entendible y estar relacionado.
+todo los nombres de todo debe ser entendible y estar relacionado.: maso
 # Funcionalidad 100%
 

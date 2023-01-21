@@ -6,82 +6,61 @@ let tasa = 0;
 let moneda = "Pesos";
 const IVA = 21;
 let cuotas = [1, 3, 6, 12, 24, 36];
-let cuotasa = [];
-let cuotaSinIva = [];
-let cuotasFinal = [];
 let plazoSeleccionado = 0;
 let totalC = [];
 /* let paquete = ""; */
 let cuotasSuma = 0;
 
-
 //seleccion de elemento en html interaccion DOM
 const tipoDePrestamo = document.querySelector("#paquete");
 
-
-
-
 // funcion para traer los datos del archivo db.json.
-const cargarTipoDePrestamos = ()=>{
-  
- 
+const cargarTipoDePrestamos = () => {
+  const fetchP = fetch("./db.json")
+    .then((res) => res.json())
 
- const fetchP =  fetch("./db.json")
- .then((res) => res.json())
+    .then((db) => {
+      /* objetos array y metodos de arrays forEach */
+      db.forEach((TDPrestamo) => {
+        const option = document.createElement("option");
 
-   .then((db) => {
-
-    /* objetos array y metodos de arrays forEach */
-    db.forEach(TDPrestamo => {
-      
-      const option = document.createElement("option");
-      
-      
-      option.innerHTML = `
+        option.innerHTML = `
       ${TDPrestamo.producto}
       
-      `
-      /* option.setAttribute("value",TDPrestamo.id) */ 
-      option.setAttribute("value",TDPrestamo.tasa) 
-       ;
-       
-       /* console.log(option );  */
-       tipoDePrestamo.append(option);
-       
-       
-      }); 
+      `;
+        /* option.setAttribute("value",TDPrestamo.id) */
+        option.setAttribute("value", TDPrestamo.tasa);
+
+        /* console.log(option );  */
+        tipoDePrestamo.append(option);
+      });
     });
-  
-    
-  };
-  // funcion para traer los datos del archivo json.
-  
-  //llamar funcion
-  cargarTipoDePrestamos()
-  
-  // SOLICITA MONTO PARA COTIZAR
-  
+};
+// funcion para traer los datos del archivo json.
+
+//llamar funcion
+cargarTipoDePrestamos();
+
+// SOLICITA MONTO PARA COTIZAR
+
+//DOM
+let solicitud = document.querySelector(".simuladorContent");
+let botoneraSimulador = document.querySelector("#botoneraSimulador");
+
+// DIVIDE EL MONTO POR LA CUOTAS Y LES AGREGA LA TASA, CREA EL OBJETO Y LO GUARDA EN LOCALSTORAGE
+
+botoneraSimulador.addEventListener("click", function () {
   //DOM
-  let solicitud = document.querySelector(".simuladorContent");
-  let botoneraSimulador = document.querySelector("#botoneraSimulador");
-  
-  // DIVIDE EL MONTO POR LA CUOTAS Y LES AGREGA LA TASA, CREA EL OBJETO Y LO GUARDA EN LOCALSTORAGE
-  
-  botoneraSimulador.addEventListener("click", function () {
-    //DOM
-    tasa = document.querySelector("#paquete").value; 
-    monto = document.querySelector("#monto_solicitado").value;
-    plazoSeleccionado = document.querySelector("#plazo").value;
-    
-    
-    
-    
-    /* let cantidadCuotas = plazoSeleccionado; */
-    let pagoMes = monto / plazoSeleccionado;
-    rest = (pagoMes * tasa) / 100;
-    pagoMes = pagoMes + rest;
-    let detalleCuotas = document.querySelector("#detalleCuotas");
-    detalleCuotas.innerHTML = `
+  tasa = document.querySelector("#paquete").value;
+  monto = document.querySelector("#monto_solicitado").value;
+  plazoSeleccionado = document.querySelector("#plazo").value;
+
+  /* let cantidadCuotas = plazoSeleccionado; */
+  let pagoMes = monto / plazoSeleccionado;
+  rest = (pagoMes * tasa) / 100;
+  pagoMes = pagoMes + rest;
+  let detalleCuotas = document.querySelector("#detalleCuotas");
+  detalleCuotas.innerHTML = `
     <div class="alert alert-black" roler="alert">
     <h2>De solicitar el credito usted devolveria el prestamo :</h2>
     <h4> 
@@ -90,35 +69,34 @@ const cargarTipoDePrestamos = ()=>{
     </div>
     `;
 
-    
-    //OBJETO PARA ARMAR EL PAQUETE ACEPTADO
-    function Prestamo() {
-      this.montoSolicitado = monto;
-      this.tasa = tasa;
-      this.moneda = moneda;
-      this.iva = IVA;
-      this.cuotas = plazoSeleccionado;
-      this.pagoPorMes = pagoMes;
-    }
-    //OBJETO PARA ARMAR EL PAQUETE ACEPTADO
-    // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
-    
-    const prestamo1 = new Prestamo(
-      monto,
-      tasa,
-      moneda,
-      IVA,
-      plazoSeleccionado,
-      pagoMes
-      );
-      // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
-      
-      //GUARDADO DEL OBJETO EN LOCAL STORAGE
-      const prestamosOBJ = JSON.stringify(prestamo1);
-      localStorage.setItem("prestamo1", prestamosOBJ);
-      
-      //Monstar informcacion avanzada del prestamo
-      info.innerHTML = `
+  //OBJETO PARA ARMAR EL PAQUETE ACEPTADO
+  function Prestamo() {
+    this.montoSolicitado = monto;
+    this.tasa = tasa;
+    this.moneda = moneda;
+    this.iva = IVA;
+    this.cuotas = plazoSeleccionado;
+    this.pagoPorMes = pagoMes;
+  }
+  //OBJETO PARA ARMAR EL PAQUETE ACEPTADO
+  // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
+
+  const prestamo1 = new Prestamo(
+    monto,
+    tasa,
+    moneda,
+    IVA,
+    plazoSeleccionado,
+    pagoMes
+  );
+  // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
+
+  //GUARDADO DEL OBJETO EN LOCAL STORAGE
+  const prestamosOBJ = JSON.stringify(prestamo1);
+  localStorage.setItem("prestamo1", prestamosOBJ);
+
+  //Monstar informcacion avanzada del prestamo
+  info.innerHTML = `
     
       <div class="alert alert-dark" ">
       <h4>
@@ -139,37 +117,34 @@ const cargarTipoDePrestamos = ()=>{
       
       
       `;
-      //Monstar informcacion avanzada del prestamo
-      
-      
+  //Monstar informcacion avanzada del prestamo
+});
 
-  });
-  
-  // DIVIDE EL MONTO POR LA CUOTAS Y LES AGREGA LA TASA, CREA EL OBJETO Y LO GUARDA EN LOCALSTORAGE
-  
-  //RECUPERA LOS DATOS DEL LOCALSTORAGE PARA USARLOS
-  const prestamo1 = JSON.parse(localStorage.getItem("prestamo1"));
-  
-  //MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
-  ultimoMontoSolicitado = document.querySelector("#ultimoMontoSolicitado");
-  
-  ultimoMontoSolicitado.innerHTML = `
+// DIVIDE EL MONTO POR LA CUOTAS Y LES AGREGA LA TASA, CREA EL OBJETO Y LO GUARDA EN LOCALSTORAGE
+
+//RECUPERA LOS DATOS DEL LOCALSTORAGE PARA USARLOS
+const prestamo1 = JSON.parse(localStorage.getItem("prestamo1"));
+
+//MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
+/* ultimoMontoSolicitado = document.querySelector("#ultimoMontoSolicitado");
+
+ultimoMontoSolicitado.innerHTML = `
   <div>
-  <p>si ya solicitaste un credito deberia aparecer aquí abajo "sacado de storage"</p>
+  <p>si ya solicitaste o Calculaste un monto, deberia aparecer aquí abajo "sacado de storage"</p>
   </div>
   <div class="alert alert-dark" ">
   <h6>
-  Ùltimo monto solicitado ${prestamo1.montoSolicitado}
+  Ùltimo monto calculado $ ${prestamo1.montoSolicitado}.-
   </h6>
   </div>
   
-  `;
-  //MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
-  
-  //VARIABLES PARA EN SUBMIT
-  let nomUserF = document.querySelector("#nameClient");
-  let emailClient = document.querySelector("#emailClient");
-  let infoNombre = document.querySelector(".infoNombre");
+  `; */
+//MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
+
+//VARIABLES PARA EN SUBMIT
+let nomUserF = document.querySelector("#nameClient");
+let emailClient = document.querySelector("#emailClient");
+let infoNombre = document.querySelector(".infoNombre");
 let infoEmail = document.querySelector(".infoEmail");
 
 /* nomUserF.addEventListener("input", function () {
@@ -210,13 +185,14 @@ emailClient.addEventListener("input", function () {
 let formularioClient = document.querySelector("#formularioClient");
 let info = document.querySelector(".info");
 
-//monstrar formulario
+//monstrar formulario Y Validaciones
+//BOTON PARA RECARGAR LA PAGINA PARA PODER SOLICITAR OTRO CALCULO
 
-  nomUserF.addEventListener("input", function () {
-    //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
-    if (nomUserF.value === "") {
-      infoNombre.innerHTML = `
-      
+nomUserF.addEventListener("input", function () {
+  //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
+  if (nomUserF.value === "") {
+    infoNombre.innerHTML = `
+    
       <div class="alert alert-danger" role="alert">
       <h5>
       Debes poner un Nombre
@@ -230,10 +206,10 @@ let info = document.querySelector(".info");
     }
   });
 emailClient.addEventListener("input", function () {
-    //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
-    if (nomUserF.value === "") {
-      infoNombre.innerHTML = `
-      
+  //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
+  if (nomUserF.value === "") {
+    infoNombre.innerHTML = `
+    
       <div class="alert alert-danger" role="alert">
       <h5>
       Debes poner un un Email Correcto
@@ -245,38 +221,83 @@ emailClient.addEventListener("input", function () {
       
       `;
     }
-  });
+});
 //accion de enviar la informacion
+  
 const printInfo = formularioClient.addEventListener("submit", function (e) {
   e.preventDefault();
-  if(emailClient.value === "" || nomUserF.value === "") {
-    
+  if (emailClient.value === "" || nomUserF.value === "") {
     Swal.fire({
+      title: "error! Faltan Datos en el formulario",
       
-      title: 'error! Faltan Datos en el formulario',
+      text: "Debe completar todos los datos para solicitar el prestamo",
       
-      text: 'Debe completar todos los datos para solicitar el prestamo',
+      icon: "error",
       
-      icon: 'error',
-      
-      confirmButtonText: 'Volver al formulario'
-      
-    })
-    
-  }
-  else{
+      confirmButtonText: "Volver al formulario",
+    });
+  } else {
+
+const fecha = new Date.parse();
+
+//OBJETO PARA ARMAR EL PAQUETE a ENVIAR
+function PrestamoParaEnviar() {
+  this.montoSolicitado = monto;
+  this.tasa = tasa;
+  this.moneda = moneda;
+  this.iva = IVA;
+  this.cuotas = plazoSeleccionado;
+  this.nomUserF  = nomUserF;
+  this.emailClient = emailClient;
+  this.fecha = fecha;
+}
+//OBJETO PARA ARMAR EL PAQUETE a ENVIAR
+  // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
+
+  const PrestamoParaEnviar1 = new PrestamoParaEnviar(
+    monto,
+    tasa,
+    moneda,
+    IVA,
+    plazoSeleccionado,
+    nomUserF,
+    emailClient,
+    fecha
+  );
+  // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
+  const prestamosEnviado = JSON.stringify(PrestamoParaEnviar1);
+  localStorage.setItem("PrestamoParaEnviar1", prestamosEnviado);
+
+
+
+
+
+
+
+
+
 
     Swal.fire({
+      title: "success",
       
-      title: 'success',
+      text: "Exelenet, la solicitud fue enviada",
       
-      text: 'Debe completar todos los datos para solicitar el prestamo',
-      
-      icon: 'success',
-      
-      confirmButtonText: 'Volver al formulario'
-      
-    })
+      icon: "success",
+
+      showDenyButton: true,
+      /* showCancelButton: true, */
+      denyButtonText: "Volver al Sitio",
+      confirmButtonText: "Calcular otro prestamo",
+    }).then((result) => {
+      /* recarga el sitio */
+      if (result.isConfirmed) {
+        location.reload();
+      } else if (result.isDenied) {
+        Swal.fire(
+          "Si lo deseas puedes presionar el boton Celeste para calcular otro prestamo"
+          );
+        }
+    });
     info.innerHTML = `
     
     <div class="alert alert-dark" ">
@@ -302,24 +323,30 @@ const printInfo = formularioClient.addEventListener("submit", function (e) {
   }
 });
 
-
-
 //BOTON PARA RECARGAR LA PAGINA PARA PODER SOLICITAR OTRO CALCULO
+
 let refresh = document.querySelector("#refresh");
 refresh.addEventListener("click", (_) => {
   location.reload();
 });
 
-//LLAMANDO A LAS FUNCIONES
 
-/* Swal.fire({
+//RECUPERA LOS DATOS DEL LOCALSTORAGE PARA USARLOS
+const PrestamoParaEnviar1 = JSON.parse(localStorage.getItem("PrestamoParaEnviar1"));
 
-  title: 'Error!',
+//MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
+ultimoMontoSolicitado = document.querySelector("#ultimoMontoSolicitado");
+
+ultimoMontoSolicitado.innerHTML = `
+  <div>
+  <p>si ya solicitaste o Calculaste un monto, deberia aparecer aquí abajo "sacado de storage"</p>
+  </div>
+  <div class="alert alert-dark" ">
+  <h6>
+  Ùltimo monto Solicitado $ ${PrestamoParaEnviar1.montoSolicitado}.-
+  </h6>
+  <p> ${PrestamoParaEnviar1.fecha}</p>
+  </div>
   
-  text: 'Do you want to continue?',
-  
-  icon: 'error',
-  
-  confirmButtonText: 'Cool'
-  
-  }) */
+  `;
+//MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
