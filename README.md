@@ -2,11 +2,12 @@
 ## objetos array y metodos de arrays LINE(36, 94, 105, 116,117)
 ## funciones y condicionales LINE(25, 185, 150, 168)
 ## Generacion de DOM de forma dinamica Eventos LINE(25,85,132,151,168)
-## Sintaxis avansada LINE(35)
+## Sintaxis avansada LINE(35, global)
+
 ## Almenos una libreria de usoa relevante. para el proyecto
 ## manejo de promesas y FETCH LINE(25)
 ## carga de datos desde JSON local o desde una API externa LINE( 29)
-## uso de STORAGE
+## uso de STORAGE LINE(116, 117, 127,136)
 
 ## imputs, y eventos adecuados, salidas coherentes a los datos visualizacion correcta
 

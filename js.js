@@ -89,6 +89,7 @@ const cargarTipoDePrestamos = ()=>{
     </h4>
     </div>
     `;
+
     
     //OBJETO PARA ARMAR EL PAQUETE ACEPTADO
     function Prestamo() {
@@ -109,15 +110,38 @@ const cargarTipoDePrestamos = ()=>{
       IVA,
       plazoSeleccionado,
       pagoMes
-    );
-    // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
+      );
+      // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
+      
+      //GUARDADO DEL OBJETO EN LOCAL STORAGE
+      const prestamosOBJ = JSON.stringify(prestamo1);
+      localStorage.setItem("prestamo1", prestamosOBJ);
+      
+      //Monstar informcacion avanzada del prestamo
+      info.innerHTML = `
     
-    //GUARDADO DEL OBJETO EN LOCAL STORAGE
-    const prestamosOBJ = JSON.stringify(prestamo1);
-    localStorage.setItem("prestamo1", prestamosOBJ);
-
-
-
+      <div class="alert alert-dark" ">
+      <h4>
+            Detalles del préstamo a solicitar: 
+      <lo>
+      <li>Monto Solicitado = $${prestamo1.montoSolicitado}.-</li>
+      <li>Tasa: ${prestamo1.tasa}%</li>
+      
+      <li>A pagar por mes cuotas de = ${prestamo1.pagoPorMes}.-</li>
+      <li>Cantidad de cuotas: ${prestamo1.cuotas}</li>
+      
+      </lo>
+      </h4>
+      
+      
+      
+      </div>
+      
+      
+      `;
+      //Monstar informcacion avanzada del prestamo
+      
+      
 
   });
   
@@ -130,12 +154,15 @@ const cargarTipoDePrestamos = ()=>{
   ultimoMontoSolicitado = document.querySelector("#ultimoMontoSolicitado");
   
   ultimoMontoSolicitado.innerHTML = `
-  
+  <div>
+  <p>si ya solicitaste un credito deberia aparecer aquí abajo "sacado de storage"</p>
+  </div>
   <div class="alert alert-dark" ">
   <h6>
   Ùltimo monto solicitado ${prestamo1.montoSolicitado}
   </h6>
   </div>
+  
   `;
   //MUESTRA EN EL NAV EL ULTIMO MONTO GUARDADO EN LOCAL STORAGE
   
@@ -145,7 +172,7 @@ const cargarTipoDePrestamos = ()=>{
   let infoNombre = document.querySelector(".infoNombre");
 let infoEmail = document.querySelector(".infoEmail");
 
-nomUserF.addEventListener("input", function () {
+/* nomUserF.addEventListener("input", function () {
   //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
   if (nomUserF.value === "") {
     infoNombre.innerHTML = `
@@ -178,38 +205,104 @@ emailClient.addEventListener("input", function () {
     
     `;
   }
-});
+}); */
 
 let formularioClient = document.querySelector("#formularioClient");
 let info = document.querySelector(".info");
 
 //monstrar formulario
 
+  nomUserF.addEventListener("input", function () {
+    //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
+    if (nomUserF.value === "") {
+      infoNombre.innerHTML = `
+      
+      <div class="alert alert-danger" role="alert">
+      <h5>
+      Debes poner un Nombre
+      </h5>
+      
+      
+      </div>
+      
+      
+      `;
+    }
+  });
+emailClient.addEventListener("input", function () {
+    //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
+    if (nomUserF.value === "") {
+      infoNombre.innerHTML = `
+      
+      <div class="alert alert-danger" role="alert">
+      <h5>
+      Debes poner un un Email Correcto
+      </h5>
+      
+      
+      </div>
+      
+      
+      `;
+    }
+  });
+//accion de enviar la informacion
 const printInfo = formularioClient.addEventListener("submit", function (e) {
   e.preventDefault();
-  info.innerHTML = `
-  
-  <div class="alert alert-dark" ">
-  <h4>
-  Excelente ${nomUserF.value} los datos se enviaron correctamente.
-  Datos del préstamo: 
-  <lo>
-  <li>Monto Solicitado = $${prestamo1.montoSolicitado}.-</li>
-  <li>Tasa: ${prestamo1.tasa}%</li>
-  
-  <li>A pagar por mes cuotas de = ${prestamo1.pagoPorMes}.-</li>
-  <li>Cantidad de cuotas: ${prestamo1.cuotas}</li>
-  
-  </lo>
-  </h4>
-  
-  
-  
-  </div>
-  
-  
-  `;
+  if(emailClient.value === "" || nomUserF.value === "") {
+    
+    Swal.fire({
+      
+      title: 'error! Faltan Datos en el formulario',
+      
+      text: 'Debe completar todos los datos para solicitar el prestamo',
+      
+      icon: 'error',
+      
+      confirmButtonText: 'Volver al formulario'
+      
+    })
+    
+  }
+  else{
+
+    Swal.fire({
+      
+      title: 'success',
+      
+      text: 'Debe completar todos los datos para solicitar el prestamo',
+      
+      icon: 'success',
+      
+      confirmButtonText: 'Volver al formulario'
+      
+    })
+    info.innerHTML = `
+    
+    <div class="alert alert-dark" ">
+    <h4>
+    Excelente ${nomUserF.value} los datos se enviaron correctamente.
+    Datos del préstamo: 
+    <lo>
+    <li>Monto Solicitado = $${prestamo1.montoSolicitado}.-</li>
+    <li>Tasa: ${prestamo1.tasa}%</li>
+    
+    <li>A pagar por mes cuotas de = ${prestamo1.pagoPorMes}.-</li>
+    <li>Cantidad de cuotas: ${prestamo1.cuotas}</li>
+    
+    </lo>
+    </h4>
+    
+    
+    
+    </div>
+    
+    
+    `;
+  }
 });
+
+
 
 //BOTON PARA RECARGAR LA PAGINA PARA PODER SOLICITAR OTRO CALCULO
 let refresh = document.querySelector("#refresh");
@@ -218,3 +311,15 @@ refresh.addEventListener("click", (_) => {
 });
 
 //LLAMANDO A LAS FUNCIONES
+
+/* Swal.fire({
+
+  title: 'Error!',
+  
+  text: 'Do you want to continue?',
+  
+  icon: 'error',
+  
+  confirmButtonText: 'Cool'
+  
+  }) */
