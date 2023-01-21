@@ -20,5 +20,6 @@
 
 * todo los nombres de todo debe ser entendible y estar relacionado.: maso  O__*
 
-# Funcionalidad 100% (testeado en 3 pc y en git , espero que siga funcionando ok)
+## Debe tener Funcionalidad 100% 
+### (testeado en 3 pc y en git , espero que siga funcionando ok)
 
