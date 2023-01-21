@@ -54,6 +54,22 @@ botoneraSimulador.addEventListener("click", function () {
   tasa = document.querySelector("#paquete").value;
   monto = document.querySelector("#monto_solicitado").value;
   plazoSeleccionado = document.querySelector("#plazo").value;
+  
+  //VALIDACION DE SELECCION TIPO DE PRESTAMO
+  if (tipoDePrestamo.value === "" ) {
+    Swal.fire({
+      title: "error! Debe seleccionar un tipo de prestamo",
+      
+      text: "Debe completar todos los datos para solicitar el prestamo",
+      
+      icon: "error",
+      
+      confirmButtonText: "Volver al formulario",
+    });
+  };
+
+
+
 
   /* let cantidadCuotas = plazoSeleccionado; */
   let pagoMes = monto / plazoSeleccionado;
@@ -146,7 +162,7 @@ let nomUserF = document.querySelector("#nameClient");
 let emailClient = document.querySelector("#emailClient");
 let infoNombre = document.querySelector(".infoNombre");
 let infoEmail = document.querySelector(".infoEmail");
-
+console.log(nomUserF,infoNombre,emailClient,infoEmail)
 /* nomUserF.addEventListener("input", function () {
   //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
   if (nomUserF.value === "") {
@@ -226,7 +242,7 @@ emailClient.addEventListener("input", function () {
   
 const printInfo = formularioClient.addEventListener("submit", function (e) {
   e.preventDefault();
-  if (emailClient.value === "" || nomUserF.value === "") {
+  if (emailClient.value === "" || nomUserF.value === "" ) {
     Swal.fire({
       title: "error! Faltan Datos en el formulario",
       
@@ -236,9 +252,10 @@ const printInfo = formularioClient.addEventListener("submit", function (e) {
       
       confirmButtonText: "Volver al formulario",
     });
+   
   } else {
 
-const fecha = new Date.parse();
+const fecha = new Date();
 
 //OBJETO PARA ARMAR EL PAQUETE a ENVIAR
 function PrestamoParaEnviar() {
@@ -302,14 +319,14 @@ function PrestamoParaEnviar() {
     
     <div class="alert alert-dark" ">
     <h4>
-    Excelente ${nomUserF.value} los datos se enviaron correctamente.
+    Excelente <span><strong>${nomUserF.value.toUpperCase()}</strong></span> los datos se enviaron correctamente.
     Datos del préstamo: 
     <lo>
-    <li>Monto Solicitado = $${prestamo1.montoSolicitado}.-</li>
-    <li>Tasa: ${prestamo1.tasa}%</li>
-    
+    <li>Monto Solicitado = $${PrestamoParaEnviar1.montoSolicitado}.-</li>
+    <li>Tasa: ${PrestamoParaEnviar1.tasa}%</li>
     <li>A pagar por mes cuotas de = ${prestamo1.pagoPorMes}.-</li>
-    <li>Cantidad de cuotas: ${prestamo1.cuotas}</li>
+    <li>Cantidad de cuotas: ${PrestamoParaEnviar1.cuotas}</li>
+    <li>Contacto: ${PrestamoParaEnviar1.emailClient}</li>
     
     </lo>
     </h4>
