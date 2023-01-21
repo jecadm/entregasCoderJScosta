@@ -19,5 +19,5 @@ metodos relevantes al texto ok
 emplear arrays para agrupar valores y objetos.: ok
 
 todo los nombres de todo debe ser entendible y estar relacionado.: maso
-# Funcionalidad 100%
+# Funcionalidad 100% (Se testeao en 3 pc y en git , espero que siga funcionando ok)
 

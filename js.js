@@ -8,7 +8,13 @@ let cuotas = [1, 3, 6, 12, 24, 36];
 let plazoSeleccionado = 0;
 let totalC = [];
 let cuotasSuma = 0;
-
+//VARIABLES PARA EN SUBMIT Solicitar prestamo
+let nomUserF = document.querySelector("#nameClient");
+let emailClient = document.querySelector("#emailClient");
+let infoNombre = document.querySelector(".infoNombre");
+let infoEmail = document.querySelector(".infoEmail");
+let formularioClient = document.querySelector("#formularioClient");
+let info = document.querySelector(".info");
 //seleccion de elemento en html interaccion DOM
 const tipoDePrestamo = document.querySelector("#paquete");
 
@@ -139,13 +145,7 @@ botoneraSimulador.addEventListener("click", function () {
 //RECUPERA LOS DATOS DEL LOCALSTORAGE PARA USARLOS
 const prestamo1 = JSON.parse(localStorage.getItem("prestamo1"));
 
-//VARIABLES PARA EN SUBMIT
-let nomUserF = document.querySelector("#nameClient");
-let emailClient = document.querySelector("#emailClient");
-let infoNombre = document.querySelector(".infoNombre");
-let infoEmail = document.querySelector(".infoEmail");
-let formularioClient = document.querySelector("#formularioClient");
-let info = document.querySelector(".info");
+
 
 //monstrar formulario Y Validaciones
 
@@ -169,8 +169,8 @@ nomUserF.addEventListener("input", function () {
 });
 emailClient.addEventListener("input", function () {
   //VERIFICA QUE NO HAYA CAMPOS VACIOS Y SI LO HAY MUESTRA EL MENSAJE DEBAJO DEL INPUT
-  if (nomUserF.value === "") {
-    infoNombre.innerHTML = `
+  if (emailClient.value === "") {
+    infoEmail.innerHTML = `
     
       <div class="alert alert-danger" role="alert">
       <h5>
@@ -201,18 +201,6 @@ const printInfo = formularioClient.addEventListener("submit", function (e) {
   } else {
     const fecha = new Date();
 
-    //OBJETO PARA ARMAR EL PAQUETE a ENVIAR
-    function PrestamoParaEnviar() {
-      this.montoSolicitado = monto;
-      this.tasa = tasa;
-      this.moneda = moneda;
-      this.iva = IVA;
-      this.cuotas = plazoSeleccionado;
-      this.nomUserF = nomUserF;
-      this.emailClient = emailClient;
-      this.fecha = fecha;
-    }
-    //OBJETO PARA ARMAR EL PAQUETE a ENVIAR
     // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
 
     const PrestamoParaEnviar1 = new PrestamoParaEnviar(
@@ -226,6 +214,18 @@ const printInfo = formularioClient.addEventListener("submit", function (e) {
       fecha
     );
     // NUEVO OBJETO A PARTIR DEL  EL PRESTAMO/PAQUETE
+    //OBJETO PARA ARMAR EL PAQUETE a ENVIAR
+    function PrestamoParaEnviar() {
+      this.montoSolicitado = monto;
+      this.tasa = tasa;
+      this.moneda = moneda;
+      this.iva = IVA;
+      this.cuotas = plazoSeleccionado;
+      this.nomUserF = nomUserF.value;
+      this.emailClient = emailClient.value;
+      this.fecha = fecha;
+    }
+    //OBJETO PARA ARMAR EL PAQUETE a ENVIAR
     const prestamosEnviado = JSON.stringify(PrestamoParaEnviar1);
     localStorage.setItem("PrestamoParaEnviar1", prestamosEnviado);
 
@@ -246,7 +246,7 @@ const printInfo = formularioClient.addEventListener("submit", function (e) {
         location.reload();
       } else if (result.isDenied) {
         Swal.fire(
-          "Si lo deseas puedes presionar el boton Celeste para calcular otro prestamo"
+          "Gracias por usar la calculadora ABC"
         );
       }
     });
@@ -254,14 +254,14 @@ const printInfo = formularioClient.addEventListener("submit", function (e) {
     
     <div class="alert alert-dark" ">
     <h4>
-    Excelente <span><strong>${nomUserF.value.toUpperCase()}</strong></span> los datos se enviaron correctamente.
+    Excelente <span><strong>${nomUserF.value.toUpperCase()}</strong></span>Se envio correctamente la solicitud.
     Datos del préstamo: 
     <lo>
     <li>Monto Solicitado = $${PrestamoParaEnviar1.montoSolicitado}.-</li>
     <li>Tasa: ${PrestamoParaEnviar1.tasa}%</li>
     <li>A pagar por mes cuotas de = ${prestamo1.pagoPorMes}.-</li>
     <li>Cantidad de cuotas: ${PrestamoParaEnviar1.cuotas}</li>
-    <li>Contacto: ${PrestamoParaEnviar1.emailClient}</li>
+    <li>Contacto: <span><strong>${emailClient.value}</strong></span></li>
     
     </lo>
     </h4>
