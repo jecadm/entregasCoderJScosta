@@ -7,7 +7,7 @@
 ## Almenos una libreria de usoa relevante. para el proyecto LIBRERIA(sweetalert2)
 ## manejo de promesas y FETCH LINE(25)
 ## carga de datos desde JSON local o desde una API externa LINE( 29)
-## uso de STORAGE LINE(116, 117, 127,136)
+## uso de STORAGE LINE(116, 117, 127,136,278)
 
 ## imputs, y eventos adecuados, salidas coherentes a los datos visualizacion correcta (GENERAL)
 
@@ -19,5 +19,5 @@ metodos relevantes al texto ok
 emplear arrays para agrupar valores y objetos.: ok
 
 todo los nombres de todo debe ser entendible y estar relacionado.: maso
-# Funcionalidad 100% (Se testeao en 3 pc y en git , espero que siga funcionando ok)
+# Funcionalidad 100% (testeado en 3 pc y en git , espero que siga funcionando ok)
 
