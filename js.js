@@ -25,32 +25,52 @@ function Prestamo() {
 //OBJETO PARA ARMAR EL PAQUETE ACEPTADO
 
 const tipoDePrestamo = document.querySelector("#paquete");
+console.log(tipoDePrestamo)
 //Tipos de Prestamos
 
 console.log(tipoDePreastamo)
 
   
  const cargarTipoDePrestamos = ()=>{
-
-   fetch("./db.json")
+//promesa
+fetch("./db.json")
    .then((res) => res.json())
-   .then((tasa) => {
-     tasa.foreach((tipoDePreastamo) => {
+
+   .then((db) => {
+    db.forEach(TDPrestamo => {
+
+      const li = document.createElement("li");
+    
+      
+       li.innerHTML = `
+       ${TDPrestamo.producto}
+      
+       `
+       li.setAttribute("value",TDPrestamo.id) 
+       ;
+      
+       console.log(li );
+       tipoDePrestamo.append(li)
+
+       
+    });
+    
+   /*  db.foreach((TDPrestamo) => {
        const li = document.createElement("li");
        
        li.innerHTML = `
        
-       <h4>${tipoDePreastamo.nombre}</h4>
+       <h4>${TDPrestamo.tasa}</h4>
        
-       value = "${tipoDePreastamo.id}"
+       value = "${TDPrestamo.id}"
        
        `;
        
        selected.append(li);
-      });
+      }); */
     });
     
-    console.log(lista)
+  
   };
 
 cargarTipoDePrestamos()
